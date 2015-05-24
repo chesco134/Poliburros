@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Poliburros</string>
+    <string name="title_section1">Promos</string>
+    <string name="title_section2">Menú</string>
+    <string name="title_section3">Historias</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="cocacola">Evite el exceso.</string>
+    <string name="main_label">Deslice para ver el menú</string>
+    <string name="promos_label">Participa para ganar promociones en:</string>
+    <string name="logo_desc">Poliburros</string>
+    <string name="rebusne">+REBUSNE</string>
+    <string name="olle_ke_riko">¡oLLe ke rikhura!</string>
+    <string name="participa">QR Challenge</string>
+    <string name="price_status">¡Escanea una secuencia de 5 colores QR (se pueden repetir) y gana!</string>
+
+</resources>
