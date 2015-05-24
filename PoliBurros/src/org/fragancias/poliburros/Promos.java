@@ -19,14 +19,16 @@ import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Promos extends Fragment{
 
 	public TextView qrChallenge;
+	private TextView ganaste;
 	private static final String ARG_SECTION_NUMBER = "arg_section_number";
 	private LinearLayout colors;
 	private Activity activity;
-	private static List<View> blocks = new ArrayList<View>(5);
+	private static List<Integer> blocks = new ArrayList<Integer>(5);
 	
 	public Promos(){
 		codigosColor.put("3a8beb6c1a12916eace5e82e7be41d797836b8c7bdf2ab10a1d3802005fc3896", Color.RED);
@@ -40,28 +42,16 @@ public class Promos extends Fragment{
 		return colors;
 	}
 	
-	public List<View> getBlocks(){
+	public List<Integer> getBlocks(){
 		return blocks;
 	}
 	
-	public boolean addBlock(View block){
+	public boolean addBlock(Integer colorBlock){
 		if(blocks.size() == 5){
 			return false;
 		}else{
-			blocks.add(block);
-			try{
-				colors.addView(block);
-			}catch(NullPointerException e){
-				reloadBlocks();
-			}
+			blocks.add(colorBlock);
 			return true;
-		}
-	}
-	
-	private void reloadBlocks(){
-		colors = (LinearLayout)getView().findViewById(R.id.color_blocks);
-		for(View view : blocks){
-			colors.addView(view);
 		}
 	}
 	
@@ -83,6 +73,7 @@ public class Promos extends Fragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstaceState){
 		View rootView = inflater.inflate(R.layout.promos, parent, false);
 		colors = (LinearLayout)rootView.findViewById(R.id.color_blocks);
+		ganaste = (TextView)rootView.findViewById(R.id.ganaste);
 		qrChallenge = (TextView)rootView.findViewById(R.id.trivia_qr);		
 		qrChallenge.setOnTouchListener(new OnTouchListener(){
 
@@ -108,15 +99,37 @@ public class Promos extends Fragment{
 				scanIntegrator.initiateScan();
 			}
 		});
+		//Toast.makeText(activity,"Hey there!", Toast.LENGTH_SHORT).show();
 		return rootView;
 	}
 	
 	@Override
-	public void onViewStateRestored(Bundle savedInstanceState){
-		super.onViewStateRestored(savedInstanceState);
-		for(View view : blocks){
+	public void onResume(){
+		super.onResume();
+		LayoutInflater inflater = (LayoutInflater)activity.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+		for(Integer colorBlock : blocks){
+			View view = inflater.inflate(R.layout.color_block, colors, false);
+			view.setBackgroundColor(Integer.valueOf(colorBlock));
 			colors.addView(view);
-		}		
+		}
+		if( blocks.size() == 5 )
+		if( blocks.get(0) == Color.RED &&
+			blocks.get(1) == Color.BLUE	&&
+			blocks.get(2) == Color.MAGENTA &&
+			blocks.get(3) == Color.RED &&
+			blocks.get(4) == Color.GREEN){
+			ganaste.setVisibility(View.VISIBLE);
+		}else{
+			ganaste.setText("Sigue participando");
+			ganaste.setTextColor(Color.DKGRAY);
+			ganaste.setVisibility(View.VISIBLE);
+		}
+	}
+	
+	@Override
+	public void onPause(){
+		super.onPause();
+		colors.removeAllViews();
 	}
 
 	public static final Map<String,Integer> codigosColor = new TreeMap<String,Integer>();

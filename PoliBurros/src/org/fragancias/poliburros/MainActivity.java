@@ -126,18 +126,14 @@ public class MainActivity extends ActionBarActivity implements
 			color = scanningResult.getContents();
 			if( color != null ){
 				if(Promos.codigosColor.containsKey(color)){
-					LayoutInflater inflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
-					ImageView colorBlock = (ImageView)inflater.inflate(R.layout.color_block, promos.getColorsContainer(), false);
-					colorBlock.setBackgroundColor(Promos.codigosColor.get(color));
-					promos.addBlock(colorBlock);
-					
+					promos.addBlock(Promos.codigosColor.get(color));
+					if( promos.getBlocks().size() < 5 ){
+						IntentIntegrator i = new IntentIntegrator(this);
+						i.initiateScan();
+					}
 					//promos.qrChallenge.setEnabled(false);
 					//promos.qrChallenge.setText("¡Siga participando!");
-				}else{
-					Toast.makeText(this,"QR Inválido!",Toast.LENGTH_SHORT).show();
 				}
-			}else{
-				Toast.makeText(this,"El color fue nulo.",Toast.LENGTH_SHORT).show();
 			}
 		}
 	}
