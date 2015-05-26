@@ -16,5 +16,8 @@
     <string name="participa">QR Challenge</string>
     <string name="ganaste">¡Ganaste!</string>
     <string name="price_status">¡Escanea una secuencia de 5 colores QR (se pueden repetir) y gana!</string>
+    <string name="title_about">Grupo AZIZ S.A. de C.V.</string>
+    <string name="short_about">Multidisciplina para el poli y el mundo.</string>
+    <string name="contacto">Contacto +52 (55) 13790281 \n\t +52 (55) 29892764</string>
 
 </resources>
