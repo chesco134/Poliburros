@@ -1,4 +1,4 @@
-package org.fragancias.poliburros;
+package org.jcapiz.poliburros;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

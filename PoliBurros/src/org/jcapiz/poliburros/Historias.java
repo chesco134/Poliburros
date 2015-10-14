@@ -1,6 +1,7 @@
-package org.fragancias.poliburros;
+package org.jcapiz.poliburros;
 
-import org.fragancias.poliburros.activities.ShowImage;
+import org.fragancias.poliburros.R;
+import org.jcapiz.poliburros.activities.ShowImage;
 
 import android.content.Context;
 import android.content.Intent;

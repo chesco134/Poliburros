@@ -1,4 +1,4 @@
-package org.fragancias.poliburros;
+package org.jcapiz.poliburros;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.anothercode.scanning_barcode.IntentIntegrator;
+import org.fragancias.poliburros.R;
 
 import android.app.Activity;
 import android.graphics.Color;

@@ -1,4 +1,4 @@
-package org.fragancias.poliburros.activities;
+package org.jcapiz.poliburros.activities;
 
 import org.fragancias.poliburros.R;
 

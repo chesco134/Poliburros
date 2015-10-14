@@ -1,4 +1,6 @@
-package org.fragancias.poliburros;
+package org.jcapiz.poliburros;
+
+import org.fragancias.poliburros.R;
 
 import android.app.Activity;
 import android.os.Bundle;
