@@ -1,10 +1,12 @@
-package org.jcapiz.poliburros;
+package org.jcapiz.poliburros.activities;
 // BALE MAS BERGA LA BIDA
 import java.util.Locale;
 
 import org.anothercode.scanning_barcode.IntentIntegrator;
 import org.anothercode.scanning_barcode.IntentResult;
 import org.fragancias.poliburros.R;
+import org.jcapiz.poliburros.fragments.Historias;
+import org.jcapiz.poliburros.fragments.Promos;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -146,14 +148,14 @@ public class MainActivity extends ActionBarActivity implements
 	public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
 		
-		org.jcapiz.poliburros.Menu menu;
+		org.jcapiz.poliburros.fragments.Menu menu;
 		Promos promos;
 		Historias historias;
 		
 		public SectionsPagerAdapter(FragmentManager fm) {
 			super(fm);
 			promos = Promos.newInstance(1);
-			menu = org.jcapiz.poliburros.Menu.newInstance(2);
+			menu = org.jcapiz.poliburros.fragments.Menu.newInstance(2);
 			historias = Historias.newInstance(3);
 		}
 		
@@ -165,7 +167,7 @@ public class MainActivity extends ActionBarActivity implements
 			return historias;
 		}
 		
-		public org.jcapiz.poliburros.Menu getMenu(){
+		public org.jcapiz.poliburros.fragments.Menu getMenu(){
 			return menu;
 		}
 

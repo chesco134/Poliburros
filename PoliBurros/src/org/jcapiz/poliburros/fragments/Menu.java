@@ -1,4 +1,4 @@
-package org.jcapiz.poliburros;
+package org.jcapiz.poliburros.fragments;
 
 import org.fragancias.poliburros.R;
 

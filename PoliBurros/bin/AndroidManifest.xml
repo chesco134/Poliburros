@@ -17,7 +17,7 @@
             android:name="org.jcapiz.poliburros.activities.ShowImage"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
         <activity
-            android:name="org.jcapiz.poliburros.MainActivity"
+            android:name="org.jcapiz.poliburros.activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

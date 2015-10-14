@@ -1,4 +1,4 @@
-package org.jcapiz.poliburros;
+package org.jcapiz.poliburros.security;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 
-public class SHAExample {
+public class AESCipher {
 	public String makeCheckSum(String fileName){
 		String hexString = null;
 		try {
