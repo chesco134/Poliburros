@@ -2,6 +2,7 @@ package org.jcapiz.poliburros.activities;
 
 import org.fragancias.poliburros.R;
 import org.jcapiz.poliburros.fragments.welcome.PreguntaPorUbicacion;
+import org.jcapiz.poliburros.fragments.welcome.RegistroUbicacion;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -17,6 +18,7 @@ import android.content.IntentSender.SendIntentException;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 public class FirstTimeActivity extends AppCompatActivity
 	implements ConnectionCallbacks, OnConnectionFailedListener{
@@ -28,6 +30,7 @@ public class FirstTimeActivity extends AppCompatActivity
     // Bool to track whether the app is already resolving an error
     private boolean mResolvingError = false;
     private static final String STATE_RESOLVING_ERROR = "resolving_error";
+    private static final String REQUESTING_LOCATION_UPDATES_KEY = "location_update";
 	
 	private GoogleApiClient mGoogleApiClient;
 	
@@ -42,7 +45,7 @@ public class FirstTimeActivity extends AppCompatActivity
 		}
 		mResolvingError = savedInstanceState != null
 	            && savedInstanceState.getBoolean(STATE_RESOLVING_ERROR, false);
-		GoogleApiClient mGoogleApiClient = new GoogleApiClient.Builder(this)
+		 mGoogleApiClient = new GoogleApiClient.Builder(this)
 			    .addApi(Drive.API)
 			    .addScope(Drive.SCOPE_FILE)
 			    .build();
@@ -111,6 +114,11 @@ public class FirstTimeActivity extends AppCompatActivity
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(STATE_RESOLVING_ERROR, mResolvingError);
+        outState.putBoolean(REQUESTING_LOCATION_UPDATES_KEY,
+	            mRequestingLocationUpdates);
+	    outState.putParcelable(LOCATION_KEY, mCurrentLocation);
+	    outState.putString(LAST_UPDATED_TIME_STRING_KEY, mLastUpdateTime);
+	    super.onSaveInstanceState(outState);
     }
 
     /* Creates a dialog for an error message */
@@ -160,5 +168,18 @@ public class FirstTimeActivity extends AppCompatActivity
             }
         }
     }
+	
+	public void si(View view){
+		RegistroUbicacion reg = new RegistroUbicacion();
+		reg.setMGoogleApiClient(mGoogleApiClient);
+		getSupportFragmentManager()
+		.beginTransaction()
+		.replace(R.id.block_2, reg)
+		.commit();
+	}
+	
+	public void no(View view){
+		
+	}
 
 }

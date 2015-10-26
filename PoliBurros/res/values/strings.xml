@@ -32,5 +32,6 @@
     <string name="icono_lanzador_gps">Inicia servicio de GPS para obtención de la posición actual.</string>
     <string name="icono_informacion_lanzador_gps">Sirve para lanzar una alerta al usuario con un poco más
         de información acerca del uso de la ubicación.</string>
+    <string name="longi_lati">Resultado getLastLocation</string>
 
 </resources>
