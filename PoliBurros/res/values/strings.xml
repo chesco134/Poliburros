@@ -19,5 +19,19 @@
     <string name="title_about">Grupo AZIZ S.A. de C.V.</string>
     <string name="short_about">Multidisciplina para el poli y el mundo.</string>
     <string name="contacto">Contacto +52 (55) 13790281 \n\t +52 (55) 29892764</string>
+    <string name="image_profile_description">Imagen de perfil de vendedor</string>
+    <string name="hecho">Hecho</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="si">Sí</string>
+    <string name="no">No</string>
+    <string name="saltar">Saltar</string>
+    <string name="ubicacion_del_negocio">Ubicación del negocio</string>
+    <string name="pregunta_sobre_ubicacion_del_negocio">¿Tiene un local fijo para su negocio?</string>
+    <string name="nombre_del_negocio">Nombre del negocio</string>
+    <string name="seleccione_ubicacion">Registre su ubicación</string>
+    <string name="icono_lanzador_gps">Inicia servicio de GPS para obtención de la posición actual.</string>
+    <string name="icono_informacion_lanzador_gps">Sirve para lanzar una alerta al usuario con un poco más
+        de información acerca del uso de la ubicación.</string>
+    <string name="longi_lati">Resultado getLastLocation</string>
 
 </resources>

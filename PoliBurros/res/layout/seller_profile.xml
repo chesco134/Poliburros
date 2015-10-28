@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/block_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/profile_bitmap"
+            android:layout_width="120sp"
+            android:layout_height="120sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12sp"
+            android:contentDescription="@string/image_profile_description"
+            android:src="@drawable/ppic" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_bitmap"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="12sp"
+            android:layout_marginLeft="12sp"
+            android:layout_marginRight="12sp"
+            android:layout_marginStart="12sp"
+            android:layout_marginTop="12sp"
+            android:hint="@string/nombre_del_negocio"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/block_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/block_1" />
+
+</RelativeLayout>
