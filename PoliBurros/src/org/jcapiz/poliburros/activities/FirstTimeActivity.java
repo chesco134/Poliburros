@@ -3,16 +3,15 @@ package org.jcapiz.poliburros.activities;
 import org.fragancias.poliburros.R;
 import org.jcapiz.poliburros.fragments.welcome.PreguntaPorUbicacion;
 import org.jcapiz.poliburros.fragments.welcome.RegistroUbicacion;
-import org.jcapiz.poliburros.gps.LocationManager;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 public class FirstTimeActivity extends AppCompatActivity {
 	
 	private RegistroUbicacion reg;
-	private LocationManager locationManager;
 	   
 	public void si(View view){
 		reg = new RegistroUbicacion();
@@ -30,6 +29,8 @@ public class FirstTimeActivity extends AppCompatActivity {
 	public void appendMessage(String message){
 		if(reg != null){
 			reg.appendMessage(message);
+		}else{
+			Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 		}
 	}
 	
@@ -39,30 +40,32 @@ public class FirstTimeActivity extends AppCompatActivity {
 		setContentView(R.layout.seller_profile);
 		if(savedInstanceState == null){
 			getSupportFragmentManager().beginTransaction()
-			.add(R.id.block_2,new PreguntaPorUbicacion(), "Pregutna por ubicación")
+			.add(R.id.block_2,new PreguntaPorUbicacion(), "Pregutna por ubicaciï¿½n")
 			.commit();
-			locationManager = new LocationManager(this);
-		}else
-			locationManager.updateValuesFromBundle(savedInstanceState);
+		}
 	}
-
+	
+	@Override
+	protected void onStop(){
+		if(reg != null)
+			reg.disconnect();
+		super.onStop();
+	}
+	/*
 	@Override
 	protected void onPause() {
 	    super.onPause();
-	    locationManager.stopLocationUpdates();
+	    if( reg != null )
+	    	reg.stopLocationUpdates();
 	}
 	
 	@Override
 	public void onResume() {
 	    super.onResume();
-	    if (locationManager.isGoogleApiClientConnected() && !locationManager.isRequestingLocationUpdates()) {
-	        locationManager.startLocationUpdates();
+	    if(reg != null )
+	    if (reg.isGoogleApiClientConnected() && !reg.isRequestingLocationUpdates()) {
+	        reg.startLocationUpdates();
 	    }
 	}
-	
-	@Override
-	public void onSaveInstanceState(Bundle outState){
-	    super.onSaveInstanceState(outState);
-	    locationManager.onSaveInstanceState(outState);
-	}
+	*/
 }
